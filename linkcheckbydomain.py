@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
 #open and separate sentence and remove new lines
-with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
+with open("C:/zzz") as file:
     # text = (file.read())
     # print(text)
     licz = 0
