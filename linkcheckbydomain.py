@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
 #open and separate sentence and remove new lines
-with open("C:/zzz") as file:
+with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
     # text = (file.read())
     # print(text)
     licz = 0
@@ -11,6 +11,7 @@ with open("C:/zzz") as file:
     # line itteraction
     for line in file:
         line = line.rstrip("\n")
+        line = line.rstrip()
         r = requests.get(line)
         soup = BeautifulSoup(r.text, 'lxml')
         links = soup.find_all('a')
@@ -22,7 +23,7 @@ with open("C:/zzz") as file:
             for link in links:
                 anchor = link.text
                 link = str(link.get('href')).rstrip("//")
-                if link.startswith("https://korkgeschaft.de"):
+                if link.startswith("http://hard-met.pl/oferta/elektrobebny-do-zadan-lekkich"):
                     linklist[line].append(link)
                     linklist[line].append(anchor)
 

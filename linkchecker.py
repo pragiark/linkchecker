@@ -10,8 +10,11 @@ with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
     linklist = {}
     # line itteraction
     for line in file:
+        line = line.rstrip()
         line = line.rstrip("\n")
+        # print(line)
         r = requests.get(line)
+        status = r.status_code
         soup = BeautifulSoup(r.text, 'lxml')
         links = soup.find_all('a')
         scheme = (urlparse(line)).scheme
@@ -21,8 +24,9 @@ with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
             linklist[line] = []
             for link in links:
                 link = str(link.get('href')).rstrip("//")
-                if link.startswith("http") and not link.startswith(fullurl):
+                if link.startswith("http://hard-met.pl") and not link.startswith(fullurl):
                     linklist[line].append(link)
+
 
 # Print results
 for k, v in linklist.items():
