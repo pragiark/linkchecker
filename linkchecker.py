@@ -13,10 +13,12 @@ with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
         line = line.rstrip()
         line = line.rstrip("\n")
         # print(line)
-        r = requests.get(line)
-        status = r.status_code
+        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+        r = requests.get(line, headers = headers)
+        #status = r.status_code
         soup = BeautifulSoup(r.text, 'lxml')
         links = soup.find_all('a')
+        print(links)
         scheme = (urlparse(line)).scheme
         domain = (urlparse(line)).netloc
         fullurl = str(scheme)+ "://" + str(domain)
@@ -24,7 +26,7 @@ with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
             linklist[line] = []
             for link in links:
                 link = str(link.get('href')).rstrip("//")
-                if link.startswith("http://hard-met.pl") and not link.startswith(fullurl):
+                if link.startswith("https://primacon.pl") and not link.startswith(fullurl):
                     linklist[line].append(link)
 
 
