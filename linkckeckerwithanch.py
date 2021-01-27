@@ -20,20 +20,22 @@ with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
         scheme = (urlparse(line)).scheme
         domain = (urlparse(line)).netloc
         fullurl = str(scheme)+ "://" + str(domain)
+        # print(fullurl)
         if line.startswith("http"):
             linklist[line] = []
             for link in links:
                 anchor = link.text
                 link = str(link.get('href')).rstrip("//")
-                if link.startswith("http://magasindeliege.fr") or link.startswith("https://magasindeliege.fr"):
+                if link.startswith("http://primacon.pl") or link.startswith("https://primacon.pl"):
                     linklist[line].append(link)
                     linklist[line].append(anchor)
 
 #print(linklist)
 
-# Print results
+
 for k, v in linklist.items():
     licz = licz + 1
-    print(str(licz)+ "." " Na stronie: " + str(k) + " są linki zewnętrzne")
+    print(str(licz)+ "." " Na stronie: " + str(k))
+    print("są następujące linki zewnętrzne i anchory :")
     for results in v:
         print(results)

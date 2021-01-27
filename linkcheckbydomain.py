@@ -25,7 +25,7 @@ with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
             for link in links:
                 anchor = link.text
                 link = str(link.get('href')).rstrip("//")
-                if link.startswith("http://hard-met.pl/oferta/elektrobebny-do-zadan-lekkich"):
+                if link.startswith("https://www.chess.com/"):
                     linklist[line].append(link)
                     linklist[line].append(anchor)
 
