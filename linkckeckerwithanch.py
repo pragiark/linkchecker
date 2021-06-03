@@ -26,7 +26,7 @@ with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
             for link in links:
                 anchor = link.text
                 link = str(link.get('href')).rstrip("//")
-                if link.startswith("http://primacon.pl") or link.startswith("https://primacon.pl"):
+                if link.startswith("http://realestate-honeste.com") or link.startswith("https://realestate-honeste.com"):
                     linklist[line].append(link)
                     linklist[line].append(anchor)
 
@@ -38,4 +38,8 @@ for k, v in linklist.items():
     print(str(licz)+ "." " Na stronie: " + str(k))
     print("są następujące linki zewnętrzne i anchory :")
     for results in v:
-        print(results)
+        if v == []:
+            print("links not found")
+        else:
+            print(results)
+    print(" ")

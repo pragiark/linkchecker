@@ -26,7 +26,7 @@ with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
             linklist[line] = []
             for link in links:
                 link = str(link.get('href')).rstrip("//")
-                if link.startswith("https://primacon.pl") and not link.startswith(fullurl):
+                if link.startswith("https://realestate-honeste.com") and not link.startswith(fullurl):
                     linklist[line].append(link)
 
 
