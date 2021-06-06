@@ -26,17 +26,20 @@ with open("C:/Users/Arkadiusz/Desktop/FV/Październik/check.txt") as file:
             for link in links:
                 anchor = link.text
                 link = str(link.get('href')).rstrip("//")
-                if link.startswith("http://realestate-honeste.com") or link.startswith("https://realestate-honeste.com"):
+                if link.startswith("http://korkgeschaft.de") or link.startswith("https://korkgeschaft.de"):
                     linklist[line].append(link)
                     linklist[line].append(anchor)
 
-#print(linklist)
+# print(linklist)
 
 
 for k, v in linklist.items():
     licz = licz + 1
     print(str(licz)+ "." " Na stronie: " + str(k))
-    print("są następujące linki zewnętrzne i anchory :")
+    if not v:   # is not operator according to:  https://www.python.org/dev/peps/pep-0008/#id51
+        print('nie ma szukanych linków')
+    else:
+        print("są następujące linki zewnętrzne i anchory:")
     for results in v:
         if v == []:
             print("links not found")
